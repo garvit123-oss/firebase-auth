@@ -13,12 +13,13 @@ function Signup() {
     name: "",
     email: "",
     pass: "",
+    userType: "",
   });
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   const handleSubmission = () => {
-    if (!values.name || !values.email || !values.pass) {
+    if (!values.name || !values.email || !values.pass || !values.userType) {
       setErrorMsg("Fill all fields");
       return;
     }
@@ -52,6 +53,20 @@ function Signup() {
             setValues((prev) => ({ ...prev, name: event.target.value }))
           }
         />
+            <select
+              className="infoInput"
+              name="userType"
+              // value={data.userType}
+              onChange={(event) =>
+            setValues((prev) => ({ ...prev, userType: event.target.value }))
+          }
+            >
+              <option value="">Select User Type</option>
+              <option value="student">Student</option>faculty
+              <option value="faculty">Faculty</option>
+              <option value="warden">Warden</option>
+              <option value="department_head">Department Head</option>
+            </select>
         <InputControl
           label="Email"
           placeholder="Enter email address"
@@ -60,6 +75,7 @@ function Signup() {
           }
         />
         <InputControl
+          type="password"
           label="Password"
           placeholder="Enter password"
           onChange={(event) =>

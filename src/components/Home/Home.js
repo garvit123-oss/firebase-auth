@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Home.css";
+import Cards from "../Cards/Cards";
+import Table from "../Table/Table";
 
-function Home(props) {
+function Home() {
   return (
+    
     <div>
       <div>
+      <div className="Home">
+      <h1>Dashboard</h1>
+      <Cards />
+      <Table />
+    </div>
         <h1>
           <Link to="/login">Login</Link>
         </h1>
@@ -18,7 +27,7 @@ function Home(props) {
       <br />
       <br />
 
-      <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2>
+      {/* <h2>{props.name ? `Welcome - ${props.name}` : "Login please"}</h2> */}
     </div>
   );
 }
